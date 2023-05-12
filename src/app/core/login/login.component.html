@@ -1,0 +1,32 @@
+<div class="bg-cyan-100 min-h-screen  flex items-center justify-center">
+
+  <!--  login container  -->
+  <div class="bg-gray-100 flex rounded-2xl shadow-lg max-w-4xl p-5">
+    <!--    form  -->
+    <div class="md:w-1/2 grid place-content-center min-w-0">
+      <h2 class="font-bold text-3xl">Task Manager</h2>
+      <br>
+      <!-- google login -->
+      <div *ngIf="!user">
+        <p class="text-base text-orange-600 text-center mb-2">You didn't login yet</p>
+        <asl-google-signin-button *ngIf="!user" type="standard" size="large" shape="pill"></asl-google-signin-button>
+        <br>
+        <p class="text-base text-amber-500 ">You won't forget anything!</p>
+      </div>
+      <!--loggedin info-->
+      
+      <div *ngIf="user">
+        <img src="{{user.photoUrl}}">
+        <br>
+        <div>
+          <h4>Welcome, {{user.name}}</h4>
+          <p>Email: {{user.email}}</p>
+        </div>
+      </div>
+    </div>
+    <!--    image  -->
+    <div class="md:block hidden w-1/2">
+      <img class="rounded-2xl" src="./assets/images/todo_login.jpg" alt="TODO Login">
+    </div>
+  </div>
+</div>
